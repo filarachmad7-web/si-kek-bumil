@@ -1,234 +1,225 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Si-KEK Bumil</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f8fb;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #f48fb1;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-    }
-    nav {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      background: #fde4ec;
-      padding: 12px;
-    }
-    nav button {
-      background: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    nav button:hover {
-      background: #388E3C;
-    }
-    .container {
-      padding: 20px;
-    }
-    .section {
-      display: none;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    input, select {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0 10px 0;
-    }
-    .result {
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-    .risk {
-      background: #ffebee;
-      color: #c62828;
-    }
-    .safe {
-      background: #e8f5e9;
-      color: #2e7d32;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      font-size: 12px;
-      color: gray;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Si-KEK Bumil</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #fff0f5;
+  margin: 0;
+}
+
+header {
+  background: #f48fb1;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 0 0 25px 25px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: #fde4ec;
+}
+
+nav button {
+  background: #f06292;
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: #ec407a;
+}
+
+.container {
+  padding: 15px;
+}
+
+.section {
+  display: none;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+img {
+  width: 100%;
+  border-radius: 15px;
+  margin: 10px 0;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  color: gray;
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <h2>Si-KEK Bumil</h2>
-  <p>Skrining & Edukasi Ibu Hamil KEK</p>
+  <p>Skrining & Edukasi Ibu Hamil</p>
 </header>
 
 <nav>
   <button onclick="showSection('home')">Beranda</button>
   <button onclick="showSection('screening')">Skrining KEK</button>
   <button onclick="showSection('prevention')">Pencegahan</button>
+  <button onclick="showSection('impact')">Tanda & Dampak</button>
+  <button onclick="showSection('menu')">Menu Sehari</button>
+  <button onclick="showSection('myth')">Mitos vs Fakta</button>
+  <button onclick="showSection('facilities')">Fasilitas Kesehatan</button>
   <button onclick="showSection('management')">Tata Laksana</button>
 </nav>
 
 <div class="container">
 
-  <!-- Beranda -->
-  <div id="home" class="section">
-  <h3>Apa itu KEK pada Ibu Hamil?</h3>
-  <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" style="width:100%; border-radius:15px; margin:10px 0;">
-  <p>Kekurangan Energi Kronis (KEK) pada ibu hamil adalah kondisi kekurangan asupan energi dan protein yang berlangsung dalam waktu lama.</p>
-  <p><strong>Kondisi ini dideteksi dengan Lingkar Lengan Atas (LiLA) kurang dari 23,5 cm atau Indeks Massa Tubuh (IMT) di bawah 18,5 kg/m².</strong></p>
-  <p>Kondisi KEK dapat meningkatkan risiko gangguan kesehatan pada ibu dan janin sehingga perlu dilakukan deteksi dan penanganan sejak dini sesuai pedoman Kementerian Kesehatan RI.</p>
+<!-- BERANDA -->
+<div id="home" class="section">
+<h3>Apa itu KEK?</h3>
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
+<p>Kekurangan Energi Kronis (KEK) pada ibu hamil adalah kondisi kekurangan asupan energi dan protein dalam waktu lama.</p>
+<p><b>Kondisi ini dideteksi dengan Lingkar Lengan Atas (LiLA) &lt; 23,5 cm atau Indeks Massa Tubuh (IMT) &lt; 18,5 kg/m².</b></p>
+<p><i>Sumber: Kementerian Kesehatan RI</i></p>
 </div>
 
-  <!-- Skrining -->
-  <div id="screening" class="section">
-    <h3>Skrining Ibu Hamil KEK</h3>
-
-    <label>Nama Ibu</label>
-    <input type="text" id="nama" />
-
-    <label>Umur (tahun)</label>
-    <input type="number" id="umur" />
-
-    <label>Usia Kehamilan (minggu)</label>
-    <input type="number" id="uk" />
-
-    <label>LILA (cm)</label>
-    <input type="number" id="lila" />
-
-    <button onclick="cekKEK()">Cek Status Gizi</button>
-
-    <div id="hasil"></div>
-  </div>
-
-  <!-- Pencegahan -->
-  <div id="prevention" class="section">
-    <h3>Pencegahan KEK Ibu Hamil (Kemenkes)</h3>
-    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" style="width:100%; border-radius:15px; margin:10px 0;">
-    <ul>
-      <li>Mengonsumsi makanan beragam, bergizi seimbang, dan cukup energi</li>
-      <li>Makan minimal 3 kali sehari dan 2 kali makanan selingan</li>
-      <li>Meningkatkan konsumsi protein hewani seperti ikan, telur, ayam, dan daging</li>
-      <li>Mengonsumsi Tablet Tambah Darah (TTD) secara rutin setiap hari</li>
-      <li>Melakukan pemeriksaan kehamilan secara teratur sesuai standar ANC</li>
-      <li>Istirahat cukup dan menghindari aktivitas berat berlebihan</li>
-    </ul>
-    <p><em>Sumber: Pedoman Gizi Ibu Hamil, Kementerian Kesehatan RI</em></p>
-  </div>
-
-  <!-- Tata Laksana -->
-  <div id="management" class="section">
-    <h3>Tata Laksana Ibu Hamil KEK</h3>
-    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" style="width:100%; border-radius:15px; margin:10px 0;">
-    <ol>
-      <li>Pemberian Makanan Tambahan (PMT) bagi ibu hamil KEK</li>
-      <li>Konseling gizi untuk meningkatkan asupan energi dan protein</li>
-      <li>Pemantauan berat badan dan LILA secara berkala</li>
-      <li>Pemberian Tablet Tambah Darah minimal 90 tablet selama kehamilan</li>
-      <li>Rujukan ke fasilitas kesehatan apabila tidak terjadi perbaikan</li>
-    </ol>
-    <p><strong>Sumber:</strong> Pedoman Pelayanan Gizi Ibu Hamil – Kementerian Kesehatan RI</p>
-  </div>
-
+<!-- SKRINING -->
+<div id="screening" class="section">
+<h3>Skrining KEK</h3>
+<label>LILA (cm)</label>
+<input type="number" id="lila">
+<button onclick="cekKEK()">Cek Status</button>
+<div id="hasil"></div>
 </div>
 
-  <!-- Fasilitas Kesehatan -->
-  <div id="facilities" class="section">
-    <h3>Fasilitas Kesehatan di Kabupaten Karanganyar</h3>
-    <p>Daftar rumah sakit utama dan puskesmas (nama & alamat). Sumber: Dinas Kesehatan Kabupaten Karanganyar (2024).</p>
+<!-- PENCEGAHAN -->
+<div id="prevention" class="section">
+<h3>Pencegahan KEK Ibu Hamil</h3>
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+<ul>
+<li>Mengonsumsi makanan beragam, bergizi seimbang, dan cukup energi</li>
+<li>Makan minimal 3 kali sehari dan 2 kali selingan</li>
+<li>Meningkatkan konsumsi protein hewani (ikan, telur, ayam, daging)</li>
+<li>Mengonsumsi Tablet Tambah Darah (TTD) setiap hari</li>
+<li>Melakukan pemeriksaan kehamilan secara teratur (ANC)</li>
+<li>Istirahat cukup dan menghindari aktivitas berat berlebihan</li>
+</ul>
+<p><i>Sumber: Pedoman Gizi Ibu Hamil – Kemenkes RI</i></p>
+</div>
 
-    <h4>Rumah Sakit</h4>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1586773860416-6b5b0b6f6a2b" style="width:100%; border-radius:10px; margin-bottom:8px;">
-      <ul>
-        <li><strong>RS Umum Jati Husada Karanganyar</strong> – Jl. Raya Solo–Tawangmangu KM 10.3, Desa Jati, Kec. Jaten, Kab. Karanganyar.</li>
-        <li><strong>RS Mangesti Rahayu</strong> – Jl. Adi Sumarmo, Desa Gawanan, Kec. Colomadu, Kab. Karanganyar.</li>
-        <li><strong>RS Umum Indo Sehat Karanganyar</strong> – Jl. Solo–Sragen KM 11, Desa Kemiri, Kec. Kebakkramat, Kab. Karanganyar.</li>
-        <li><strong>RS Umum Daerah Kartini Karanganyar</strong> – Jl. Laksda Yos Sudarso, Kel. Bejen, Kec. Karanganyar, Kab. Karanganyar.</li>
-        <li><strong>RS PKU Muhammadiyah Karanganyar</strong> – Jl. Papahan Tasikmadu, Kec. Tasikmadu, Kab. Karanganyar.</li>
-        <li><strong>RS dr. Siswanto (Lanud Adi Sumarmo)</strong> – Colomadu / Lanud Adi Soemarmo area, Karanganyar.</li>
-        <li><strong>RS Jafar Medika</strong> – Munggur, Mojogedang, Kab. Karanganyar.</li>
-        <li><strong>RSIA Dian Pertiwi</strong> – Jl. Lawu Papahan, Tasikmadu, Kab. Karanganyar.</li>
-        <li><strong>RS Khusus Bedah Mojosongo (RS Mojosongo)</strong> – Jl. Nusa Indah, Randurejo, Ngringo, Kec. Jaten, Kab. Karanganyar.</li>
-      </ul>
-    </div>
+<!-- TANDA & DAMPAK -->
+<div id="impact" class="section">
+<h3>Tanda & Dampak KEK</h3>
+<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
+<ul>
+<li>Mudah lelah dan lemah</li>
+<li>Berat badan tidak naik sesuai usia kehamilan</li>
+<li>LiLA kurang dari 23,5 cm</li>
+<li>Risiko bayi BBLR</li>
+<li>Risiko persalinan prematur</li>
+</ul>
+<p><i>Sumber: Kemenkes RI</i></p>
+</div>
 
-    <h4>Puskesmas (21 unit)</h4>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1586773860416-6b5b0b6f6a2b" style="width:100%; border-radius:10px; margin-bottom:8px;">
-      <ol>
-        <li>Puskesmas Jatipuro</li>
-        <li>Puskesmas Jatiyoso</li>
-        <li>Puskesmas Jumapolo</li>
-        <li>Puskesmas Jumantono</li>
-        <li>Puskesmas Matesih</li>
-        <li>Puskesmas Tawangmangu</li>
-        <li>Puskesmas Ngargoyoso</li>
-        <li>Puskesmas Karangpandan</li>
-        <li>Puskesmas Karanganyar</li>
-        <li>Puskesmas Tasikmadu</li>
-        <li>Puskesmas Jaten I</li>
-        <li>Puskesmas Jaten II</li>
-        <li>Puskesmas Colomadu I</li>
-        <li>Puskesmas Colomadu II</li>
-        <li>Puskesmas Gondangrejo</li>
-        <li>Puskesmas Kebakkramat I</li>
-        <li>Puskesmas Kebakkramat II</li>
-        <li>Puskesmas Mojogedang I</li>
-        <li>Puskesmas Mojogedang II</li>
-        <li>Puskesmas Kerjo</li>
-        <li>Puskesmas Jenawi</li>
-      </ol>
-    </div>
+<!-- MENU SEHARI -->
+<div id="menu" class="section">
+<h3>Contoh Menu Sehari</h3>
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+<ul>
+<li>Pagi: Nasi, telur, sayur</li>
+<li>Selingan: Pisang atau susu</li>
+<li>Siang: Nasi, ikan, tempe</li>
+<li>Selingan: Bubur kacang hijau</li>
+<li>Malam: Nasi, ayam, sayur</li>
+</ul>
+<p><i>Sumber: Pedoman Gizi Seimbang – Kemenkes RI</i></p>
+</div>
 
-  </div>
+<!-- MITOS VS FAKTA -->
+<div id="myth" class="section">
+<h3>Mitos vs Fakta</h3>
+<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+<ul>
+<li><b>Mitos:</b> Ibu hamil harus makan dua porsi<br><b>Fakta:</b> Makan lebih sering dan seimbang</li>
+<li><b>Mitos:</b> Tidak boleh makan ikan<br><b>Fakta:</b> Ikan sumber protein baik</li>
+<li><b>Mitos:</b> TTD membuat bayi besar<br><b>Fakta:</b> TTD mencegah anemia</li>
+</ul>
+<p><i>Sumber: Edukasi Gizi Kemenkes RI</i></p>
+</div>
+
+<!-- FASILITAS -->
+<div id="facilities" class="section">
+<h3>Fasilitas Kesehatan Karanganyar</h3>
+<img src="https://images.unsplash.com/photo-1586773860416-6b5b0b6f6a2b">
+<p><b>Rumah Sakit:</b></p>
+<ul>
+<li>RSUD Kartini Karanganyar</li>
+<li>RS Jati Husada</li>
+<li>RS Mangesti Rahayu</li>
+<li>RS PKU Muhammadiyah</li>
+<li>RSAU dr. Siswanto Lanud Adi Sumarmo</li>
+<li>RS Jafar Medika</li>
+<li>RSIA Dian Pertiwi</li>
+<li>RS Mojosongo</li>
+</ul>
+
+<p><b>Puskesmas (21):</b></p>
+<p>Jatipuro, Jatiyoso, Jumapolo, Jumantono, Matesih, Tawangmangu, Ngargoyoso, Karangpandan, Karanganyar, Tasikmadu, Jaten I, Jaten II, Colomadu I, Colomadu II, Gondangrejo, Kebakkramat I, Kebakkramat II, Mojogedang I, Mojogedang II, Kerjo, Jenawi</p>
+
+<p><i>Sumber: Profil Dinkes Karanganyar 2024</i></p>
+</div>
+
+<!-- TATA LAKSANA -->
+<div id="management" class="section">
+<h3>Tata Laksana KEK</h3>
+<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
+<ol>
+<li>Pemberian PMT</li>
+<li>Konseling gizi</li>
+<li>Pemantauan BB dan LiLA</li>
+<li>Pemberian TTD</li>
+<li>Rujukan bila perlu</li>
+</ol>
+<p><i>Sumber: Kemenkes RI</i></p>
+</div>
+
+</div>
 
 <footer>
-  <p>Aplikasi edukasi | Tidak menggantikan pemeriksaan tenaga kesehatan</p>
+Aplikasi edukasi • Tidak menggantikan pemeriksaan tenaga kesehatan
 </footer>
 
 <script>
-  function showSection(id) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => section.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+}
+
+function cekKEK() {
+  const lila = document.getElementById('lila').value;
+  const hasil = document.getElementById('hasil');
+  if (lila < 23.5) {
+    hasil.innerHTML = '<p style="color:red"><b>Risiko KEK</b></p>';
+  } else {
+    hasil.innerHTML = '<p style="color:green"><b>Tidak KEK</b></p>';
   }
+}
 
-  function cekKEK() {
-    const lila = document.getElementById('lila').value;
-    const hasil = document.getElementById('hasil');
-
-    if (lila === '') {
-      hasil.innerHTML = '<div class="result risk">Silakan masukkan nilai LILA</div>';
-      return;
-    }
-
-    if (lila < 23.5) {
-      hasil.innerHTML = '<div class="result risk"><strong>Risiko KEK</strong><br>LILA < 23,5 cm. Dianjurkan PMT dan konseling gizi.</div>';
-    } else {
-      hasil.innerHTML = '<div class="result safe"><strong>Tidak KEK</strong><br>LILA ≥ 23,5 cm. Pertahankan pola makan seimbang.</div>';
-    }
-  }
-
-  // Tampilkan beranda pertama kali
-  showSection('home');
+showSection('home');
 </script>
 
 </body>
