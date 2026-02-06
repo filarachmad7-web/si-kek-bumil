@@ -99,25 +99,25 @@ footer {
 </div>
 
 <!-- Skrining -->
-  <div id="screening" class="section">
+<div class="skrining-kek">
     <h3>Skrining Ibu Hamil KEK</h3>
 
-    <label>Nama Ibu</label>
-    <input type="text" id="nama" />
+    <label>Nama</label>
+    <input type="text" id="nama">
 
     <label>Umur (tahun)</label>
-    <input type="number" id="umur" />
+    <input type="number" id="umur">
 
     <label>Usia Kehamilan (minggu)</label>
-    <input type="number" id="uk" />
+    <input type="number" id="usiaKehamilan">
 
     <label>LILA (cm)</label>
-    <input type="number" id="lila" />
+    <input type="number" step="0.1" id="lila">
 
     <button onclick="cekKEK()">Cek Status Gizi</button>
 
-    <div id="hasil"></div>
-  </div>
+    <p id="hasil" class="hasil-skrining"></p>
+</div>
 
 <!-- PENCEGAHAN -->
 <div id="prevention" class="section">
@@ -409,6 +409,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
