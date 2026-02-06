@@ -84,6 +84,7 @@ footer {
   <button onclick="showSection('myth')">Mitos vs Fakta</button>
   <button onclick="showSection('facilities')">Fasilitas Kesehatan</button>
   <button onclick="showSection('management')">Tata Laksana</button>
+  <button onclick="showSection('game')">🎮 Game Kuis</button>
 </nav>
 
 <div class="container">
@@ -251,6 +252,82 @@ footer {
 <p><i>Sumber: Kemenkes RI</i></p>
 </div>
 
+<!-- GAME KUIS -->
+<div id="game" class="section">
+  <h3>🎮 Game Kuis KEK Ibu Hamil</h3>
+  <p id="quiz-question" style="font-size:16px; font-weight:bold;"></p>
+
+  <button onclick="answer(true)" style="margin-right:10px;">Benar</button>
+  <button onclick="answer(false)">Salah</button>
+
+  <p id="quiz-feedback" style="margin-top:10px;"></p>
+  <p id="quiz-score" style="margin-top:10px; font-weight:bold;"></p>
+</div>
+
+  <script>
+const quizData = [
+  {
+    question: "LiLA kurang dari 23,5 cm menandakan risiko KEK pada ibu hamil.",
+    correct: true,
+    explanation: "Benar. LiLA < 23,5 cm merupakan indikator risiko KEK menurut Kemenkes."
+  },
+  {
+    question: "Ibu hamil dengan KEK tidak boleh makan ikan.",
+    correct: false,
+    explanation: "Salah. Ikan adalah sumber protein hewani yang baik untuk ibu hamil."
+  },
+  {
+    question: "Ibu hamil dianjurkan makan 3 kali sehari ditambah selingan.",
+    correct: true,
+    explanation: "Benar. Pola makan ini membantu memenuhi kebutuhan gizi ibu hamil."
+  },
+  {
+    question: "Tablet Tambah Darah (TTD) boleh diminum setiap hari selama kehamilan.",
+    correct: true,
+    explanation: "Benar. TTD dianjurkan untuk mencegah anemia pada ibu hamil."
+  },
+  {
+    question: "KEK pada ibu hamil tidak berpengaruh pada bayi.",
+    correct: false,
+    explanation: "Salah. KEK dapat meningkatkan risiko BBLR dan persalinan prematur."
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+  document.getElementById("quiz-question").innerText = quizData[currentQuestion].question;
+  document.getElementById("quiz-feedback").innerText = "";
+  document.getElementById("quiz-score").innerText = "";
+}
+
+function answer(userAnswer) {
+  const q = quizData[currentQuestion];
+  if (userAnswer === q.correct) {
+    score++;
+    document.getElementById("quiz-feedback").innerHTML =
+      "<span style='color:green'>✔ Jawaban benar!</span><br>" + q.explanation;
+  } else {
+    document.getElementById("quiz-feedback").innerHTML =
+      "<span style='color:red'>✘ Jawaban salah.</span><br>" + q.explanation;
+  }
+
+  currentQuestion++;
+
+  if (currentQuestion < quizData.length) {
+    setTimeout(loadQuestion, 1500);
+  } else {
+    document.getElementById("quiz-score").innerText =
+      "Skor akhir kamu: " + score + " dari " + quizData.length;
+  }
+}
+
+// Panggil soal pertama saat menu dibuka
+document.addEventListener("DOMContentLoaded", loadQuestion);
+</script>
+
+  
 </div>
 
 <footer>
@@ -278,5 +355,6 @@ showSection('home');
 
 </body>
 </html>
+
 
 
