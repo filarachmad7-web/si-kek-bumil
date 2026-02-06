@@ -1,86 +1,39 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Si-KEK Bumil</title>
-
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #fff0f5;
-  margin: 0;
-}
-
-header {
-  background: #f48fb1;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  border-radius: 0 0 25px 25px;
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px;
-  background: #fde4ec;
-}
-
-nav button {
-  background: #f06292;
-  border: none;
-  color: white;
-  padding: 12px;
-  border-radius: 20px;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-nav button:hover {
-  background: #ec407a;
-}
-
-.container {
-  padding: 15px;
-}
-
-.section {
-  display: none;
-  background: white;
-  padding: 15px;
-  border-radius: 15px;
-}
-
-img {
-  width: 100%;
-  border-radius: 15px;
-  margin: 10px 0;
-}
-
-footer {
-  text-align: center;
-  font-size: 12px;
-  padding: 10px;
-  color: gray;
-}
+  body { font-family: Arial, sans-serif; background:#fff0f5; margin:0; color:#333; }
+  header { background:#f48fb1; color:white; text-align:center; padding:20px; border-radius:0 0 20px 20px; }
+  nav { display:flex; flex-direction:column; gap:8px; padding:12px; background:#fde4ec; }
+  nav button { background:#f06292; border:none; color:white; padding:12px; border-radius:18px; font-size:15px; cursor:pointer; }
+  nav button:hover { background:#ec407a; }
+  .container { padding:16px; }
+  .section { display:none; background:white; padding:14px; border-radius:12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); margin-bottom:12px; }
+  img.responsive { width:100%; border-radius:12px; margin:10px 0; display:block; }
+  h3 { margin-top:0; color:#b0003a; }
+  ul, ol { padding-left:18px; }
+  .small { font-size:0.9em; color:#666; }
+  footer{ text-align:center; font-size:12px; color:#666; padding:12px; }
+  .card { background:#fff; padding:12px; border-radius:10px; margin-bottom:10px; }
+  .cite { font-size:0.85em; color:#666; margin-top:8px; }
 </style>
 </head>
-
 <body>
 
 <header>
   <h2>Si-KEK Bumil</h2>
-  <p>Skrining & Edukasi Ibu Hamil</p>
+  <p>Skrining • Edukasi • Tata Laksana</p>
 </header>
 
 <nav>
   <button onclick="showSection('home')">Beranda</button>
   <button onclick="showSection('screening')">Skrining KEK</button>
-  <button onclick="showSection('prevention')">Pencegahan</button>
+  <button onclick="showSection('prevention')">Pencegahan (Kemenkes)</button>
   <button onclick="showSection('impact')">Tanda & Dampak</button>
-  <button onclick="showSection('menu')">Menu Sehari</button>
+  <button onclick="showSection('menu')">Contoh Menu Sehari</button>
   <button onclick="showSection('myth')">Mitos vs Fakta</button>
   <button onclick="showSection('facilities')">Fasilitas Kesehatan</button>
   <button onclick="showSection('management')">Tata Laksana</button>
@@ -88,139 +41,174 @@ footer {
 
 <div class="container">
 
-<!-- BERANDA -->
-<div id="home" class="section">
-<h3>Apa itu KEK?</h3>
-<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
-<p>Kekurangan Energi Kronis (KEK) pada ibu hamil adalah kondisi kekurangan asupan energi dan protein dalam waktu lama.</p>
-<p><b>Kondisi ini dideteksi dengan Lingkar Lengan Atas (LiLA) &lt; 23,5 cm atau Indeks Massa Tubuh (IMT) &lt; 18,5 kg/m².</b></p>
-<p><i>Sumber: Kementerian Kesehatan RI</i></p>
-</div>
+  <!-- BERANDA -->
+  <div id="home" class="section">
+    <h3>Apa itu KEK pada Ibu Hamil?</h3>
+    <img class="responsive" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" alt="Ibu hamil ilustrasi">
+    <p>Kekurangan Energi Kronis (KEK) pada ibu hamil adalah kondisi kurangnya asupan energi dan protein dalam waktu lama yang meningkatkan risiko kesehatan ibu dan janin.</p>
+    <p><strong>Kondisi ini dideteksi dengan Lingkar Lengan Atas (LiLA) &lt; 23,5 cm atau Indeks Massa Tubuh (IMT) &lt; 18,5 kg/m².</strong></p>
+    <p class="small">Sumber: Kementerian Kesehatan RI — Pedoman Gizi Ibu Hamil / Profil 1.000 Hari Pertama Kehidupan.</p>
+  </div>
 
-<!-- SKRINING -->
-<div id="screening" class="section">
-<h3>Skrining KEK</h3>
-<label>LILA (cm)</label>
-<input type="number" id="lila">
-<button onclick="cekKEK()">Cek Status</button>
-<div id="hasil"></div>
-</div>
+  <!-- SKRINING -->
+  <div id="screening" class="section">
+    <h3>Skrining KEK</h3>
+    <label for="lila">Masukkan LiLA (cm):</label><br>
+    <input id="lila" type="number" step="0.1" style="padding:8px; width:100%; box-sizing:border-box;">
+    <div style="margin-top:8px;">
+      <button onclick="cekKEK()" style="padding:10px 12px; background:#f06292; color:white; border:none; border-radius:10px; cursor:pointer;">Cek Status</button>
+    </div>
+    <div id="hasil" style="margin-top:10px;"></div>
+    <p class="small">Catatan: Hasil skrining awal — lakukan pemeriksaan lanjutan oleh tenaga kesehatan.</p>
+  </div>
 
-<!-- PENCEGAHAN -->
-<div id="prevention" class="section">
-<h3>Pencegahan KEK Ibu Hamil</h3>
-<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
-<ul>
-<li>Mengonsumsi makanan beragam, bergizi seimbang, dan cukup energi</li>
-<li>Makan minimal 3 kali sehari dan 2 kali selingan</li>
-<li>Meningkatkan konsumsi protein hewani (ikan, telur, ayam, daging)</li>
-<li>Mengonsumsi Tablet Tambah Darah (TTD) setiap hari</li>
-<li>Melakukan pemeriksaan kehamilan secara teratur (ANC)</li>
-<li>Istirahat cukup dan menghindari aktivitas berat berlebihan</li>
-</ul>
-<p><i>Sumber: Pedoman Gizi Ibu Hamil – Kemenkes RI</i></p>
-</div>
+  <!-- PENCEGAHAN -->
+  <div id="prevention" class="section">
+    <h3>Pencegahan KEK (Ringkas, sesuai Kemenkes)</h3>
+    <img class="responsive" src="https://images.unsplash.com/photo-1544025162-d76694265947" alt="makanan sehat">
+    <ul>
+      <li>Mengonsumsi makanan beragam, bergizi seimbang, dan cukup energi setiap hari.</li>
+      <li>Makan minimal <strong>3 kali sehari + 2 kali selingan</strong> (porsi kecil bergizi).</li>
+      <li>Tingkatkan konsumsi <strong>protein hewani</strong> (ikan, telur, ayam, daging) dan <strong>protein nabati</strong> (tempe, tahu, kacang).</li>
+      <li>Minum <strong>Tablet Tambah Darah (TTD)</strong> sesuai anjuran (TENAGA KESEHATAN memberi petunjuk dosis & pemantauan).</li>
+      <li>Rutin pemeriksaan kehamilan (ANC) dan konsultasi gizi di fasilitas kesehatan.</li>
+      <li>Istirahat cukup dan hindari aktivitas fisik berat berlebihan.</li>
+    </ul>
+    <p class="small">Sumber: Pedoman Gizi Ibu Hamil — Kementerian Kesehatan RI.</p>
+  </div>
 
-<!-- TANDA & DAMPAK -->
-<div id="impact" class="section">
-<h3>Tanda & Dampak KEK</h3>
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
-<ul>
-<li>Mudah lelah dan lemah</li>
-<li>Berat badan tidak naik sesuai usia kehamilan</li>
-<li>LiLA kurang dari 23,5 cm</li>
-<li>Risiko bayi BBLR</li>
-<li>Risiko persalinan prematur</li>
-</ul>
-<p><i>Sumber: Kemenkes RI</i></p>
-</div>
+  <!-- TANDA & DAMPAK -->
+  <div id="impact" class="section">
+    <h3>Tanda & Dampak KEK pada Ibu Hamil</h3>
+    <img class="responsive" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="ilustrasi tanda KEK">
+    <ul>
+      <li>Mudah lelah, lemah, menurunnya kapasitas kerja ibu.</li>
+      <li>Berat badan ibu tidak naik sesuai usia kehamilan (kurang kenaikan BB).</li>
+      <li>Lingkar Lengan Atas (LiLA) &lt; 23,5 cm pada pemeriksaan skrining.</li>
+      <li>Dampak pada bayi: meningkatnya risiko berat lahir rendah (BBLR) dan persalinan prematur.</li>
+    </ul>
+    <p class="small">Sumber: Pedoman Gizi Ibu Hamil — Kementerian Kesehatan RI.</p>
+  </div>
 
-<!-- MENU SEHARI -->
-<div id="menu" class="section">
-<h3>Contoh Menu Sehari</h3>
-<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
-<ul>
-<li>Pagi: Nasi, telur, sayur</li>
-<li>Selingan: Pisang atau susu</li>
-<li>Siang: Nasi, ikan, tempe</li>
-<li>Selingan: Bubur kacang hijau</li>
-<li>Malam: Nasi, ayam, sayur</li>
-</ul>
-<p><i>Sumber: Pedoman Gizi Seimbang – Kemenkes RI</i></p>
-</div>
+  <!-- MENU SEHARI -->
+  <div id="menu" class="section">
+    <h3>Contoh Menu Sehari (Pagi • Siang • Sore) — komponen jelas</h3>
+    <img class="responsive" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="menu harian">
+    <h4>🍽️ Pagi</h4>
+    <ul>
+      <li><strong>Nasi putih</strong></li>
+      <li><strong>Protein hewani:</strong> Ayam goreng (1 potong kecil) <em>(atau telur rebus 1 butir)</em></li>
+      <li><strong>Protein nabati:</strong> Tempe goreng / tahu goreng (1 porsi kecil)</li>
+      <li><strong>Sayur:</strong> Sayur bening bayam / bayam tumis</li>
+      <li><strong>Buah:</strong> Pepaya / apel (1 porsi)</li>
+    </ul>
 
-<!-- MITOS VS FAKTA -->
-<div id="myth" class="section">
-<h3>Mitos vs Fakta</h3>
-<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
-<ul>
-<li><b>Mitos:</b> Ibu hamil harus makan dua porsi<br><b>Fakta:</b> Makan lebih sering dan seimbang</li>
-<li><b>Mitos:</b> Tidak boleh makan ikan<br><b>Fakta:</b> Ikan sumber protein baik</li>
-<li><b>Mitos:</b> TTD membuat bayi besar<br><b>Fakta:</b> TTD mencegah anemia</li>
-</ul>
-<p><i>Sumber: Edukasi Gizi Kemenkes RI</i></p>
-</div>
+    <h4>🍛 Siang</h4>
+    <ul>
+      <li><strong>Nasi putih</strong></li>
+      <li><strong>Protein hewani:</strong> Ikan goreng / ikan pindang (1 potong)</li>
+      <li><strong>Protein nabati:</strong> Tahu goreng / tempe bacem</li>
+      <li><strong>Sayur:</strong> Tumis wortel + buncis / sayur asem</li>
+      <li><strong>Buah:</strong> Jeruk / mangga</li>
+    </ul>
 
-<!-- FASILITAS -->
-<div id="facilities" class="section">
-<h3>Fasilitas Kesehatan Karanganyar</h3>
-<img src="https://images.unsplash.com/photo-1586773860416-6b5b0b6f6a2b">
-<p><b>Rumah Sakit:</b></p>
-<ul>
-<li>RSUD Kartini Karanganyar</li>
-<li>RS Jati Husada</li>
-<li>RS Mangesti Rahayu</li>
-<li>RS PKU Muhammadiyah</li>
-<li>RSAU dr. Siswanto Lanud Adi Sumarmo</li>
-<li>RS Jafar Medika</li>
-<li>RSIA Dian Pertiwi</li>
-<li>RS Mojosongo</li>
-</ul>
+    <h4>🍽️ Sore / Malam</h4>
+    <ul>
+      <li><strong>Nasi putih</strong></li>
+      <li><strong>Protein hewani:</strong> Ayam semur / ayam ungkep (porsi kecil)</li>
+      <li><strong>Protein nabati:</strong> Tempe goreng / tahu bacem</li>
+      <li><strong>Sayur:</strong> Sayur sop (dengan sayuran beragam)</li>
+      <li><strong>Buah:</strong> Pisang / buah lokal lain</li>
+    </ul>
 
-<p><b>Puskesmas (21):</b></p>
-<p>Jatipuro, Jatiyoso, Jumapolo, Jumantono, Matesih, Tawangmangu, Ngargoyoso, Karangpandan, Karanganyar, Tasikmadu, Jaten I, Jaten II, Colomadu I, Colomadu II, Gondangrejo, Kebakkramat I, Kebakkramat II, Mojogedang I, Mojogedang II, Kerjo, Jenawi</p>
+    <p class="small">Catatan: porsi disesuaikan kebutuhan energi ibu; tujuan: variasi & kecukupan nutrisi. Sumber pedoman gizi Kemenkes.</p>
+  </div>
 
-<p><i>Sumber: Profil Dinkes Karanganyar 2024</i></p>
-</div>
+  <!-- MITOS VS FAKTA -->
+  <div id="myth" class="section">
+    <h3>Mitos vs Fakta (dengan penjelasan ilmiah singkat)</h3>
+    <img class="responsive" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" alt="mitos vs fakta">
+    <ul>
+      <li><strong>Mitos:</strong> Ibu hamil harus makan dua porsi besar.<br>
+          <strong>Fakta:</strong> Lebih aman dan efektif untuk makan lebih sering dengan porsi seimbang (3 kali makan utama + 1–2 selingan bergizi). <br>
+          <em>Penjelasan singkat:</em> Pola makan yang teratur dan beragam meningkatkan kecukupan energi dan mikronutrien tanpa menyebabkan lonjakan metabolik, dan studi observasional menunjukkan hubungan antara pola makan lengkap (3 kali makan) dengan penurunan risiko prematuritas dan BBLR. <br>
+          <span class="cite">Referensi ringkas: studi ringkasan pola makan & hasil kehamilan; Pedoman Kemenkes mengenai pencegahan KEK.</span>
+      </li>
 
-<!-- TATA LAKSANA -->
-<div id="management" class="section">
-<h3>Tata Laksana KEK</h3>
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf">
-<ol>
-<li>Pemberian PMT</li>
-<li>Konseling gizi</li>
-<li>Pemantauan BB dan LiLA</li>
-<li>Pemberian TTD</li>
-<li>Rujukan bila perlu</li>
-</ol>
-<p><i>Sumber: Kemenkes RI</i></p>
-</div>
+      <li><strong>Mitos:</strong> Ibu hamil tidak boleh makan ikan.<br>
+          <strong>Fakta:</strong> Ikan adalah sumber protein hewani dan asam lemak omega-3 penting untuk perkembangan janin; konsumsi ikan rendah merkuri dianjurkan. <br>
+          <em>Penjelasan singkat:</em> Bukti ulasan besar menunjukkan asupan ikan selama kehamilan terkait dengan manfaat neurokognitif pada anak dan penurunan risiko persalinan prematur, selama dipilih jenis ikan rendah merkuri. <br>
+          <span class="cite">Referensi ringkas: ulasan ilmiah tentang konsumsi ikan di kehamilan (review dan guidance).</span>
+      </li>
+
+      <li><strong>Mitos:</strong> Minum Tablet Tambah Darah (TTD) membuat bayi terlalu besar.<br>
+          <strong>Fakta:</strong> TTD (suplementasi zat besi/folat) mencegah anemia, meningkatkan profil hemoglobin ibu dan menurunkan risiko komplikasi; tidak menyebabkan bayi 'terlalu besar'. <br>
+          <em>Penjelasan singkat:</em> Pedoman nasional merekomendasikan suplementasi zat besi untuk mencegah anemia pada ibu hamil karena manfaatnya pada ibu dan janin; kepatuhan (≥90 tablet/kehamilan) dikaitkan dengan penurunan kejadian anemia. <br>
+          <span class="cite">Referensi ringkas: Pedoman pemberian TTD Kemenkes.</span>
+      </li>
+    </ul>
+
+    <p class="small">Sumber catatan ilmiah: ringkasan studi dan pedoman Kemenkes (lihat referensi di bawah pesan ini).</p>
+  </div>
+
+  <!-- FASILITAS -->
+  <div id="facilities" class="section">
+    <h3>Fasilitas Kesehatan di Kabupaten Karanganyar (Nama & Alamat singkat)</h3>
+    <img class="responsive" src="https://images.unsplash.com/photo-1586773860416-6b5b0b6f6a2b" alt="fasilitas kesehatan">
+    <p><strong>Rumah Sakit (contoh utama):</strong></p>
+    <ul>
+      <li>RSUD Kartini Karanganyar — Jl. Laksda Yos Sudarso, Bejen, Karanganyar</li>
+      <li>RS Jati Husada — Jl. Raya Solo–Tawangmangu KM 10.3, Jati</li>
+      <li>RS Mangesti Rahayu — Colomadu / Gawanan area</li>
+      <li>RS PKU Muhammadiyah Karanganyar — Papahan, Tasikmadu</li>
+      <li>RSAU dr. Siswanto (Lanud Adi Sumarmo)</li>
+      <li>RS Jafar Medika</li>
+      <li>RSIA Dian Pertiwi</li>
+      <li>RS Mojosongo</li>
+    </ul>
+
+    <p><strong>Puskesmas (21 unit — ringkasan nama):</strong></p>
+    <p>Jatipuro, Jatiyoso, Jumapolo, Jumantono, Matesih, Tawangmangu, Ngargoyoso, Karangpandan, Karanganyar, Tasikmadu, Jaten I, Jaten II, Colomadu I, Colomadu II, Gondangrejo, Kebakkramat I, Kebakkramat II, Mojogedang I, Mojogedang II, Kerjo, Jenawi</p>
+
+    <p class="small">Sumber: Profil Dinas Kesehatan Kabupaten Karanganyar 2024 (ringkasan untuk aplikasi).</p>
+  </div>
+
+  <!-- TATA LAKSANA -->
+  <div id="management" class="section">
+    <h3>Tata Laksana KEK (ringkas)</h3>
+    <img class="responsive" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="konseling gizi">
+    <ol>
+      <li>Pemberian PMT (makanan tambahan) sesuai kebutuhan ibu KEK.</li>
+      <li>Konseling gizi — peningkatan frekuensi makan, variasi makanan & dukungan keluarga.</li>
+      <li>Pemantauan LiLA & berat badan secara berkala.</li>
+      <li>Pemberian Tablet Tambah Darah (TTD) sesuai pedoman.</li>
+      <li>Rujukan ke fasilitas kesehatan bila ada komplikasi atau tidak ada perbaikan.</li>
+    </ol>
+    <p class="small">Sumber: Pedoman Kemenkes RI.</p>
+  </div>
 
 </div>
 
 <footer>
-Aplikasi edukasi • Tidak menggantikan pemeriksaan tenaga kesehatan
+Aplikasi edukasi • Bukan pengganti pemeriksaan tenaga kesehatan • Disusun berdasarkan pedoman Kemenkes RI
 </footer>
 
 <script>
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
-}
-
-function cekKEK() {
-  const lila = document.getElementById('lila').value;
-  const hasil = document.getElementById('hasil');
-  if (lila < 23.5) {
-    hasil.innerHTML = '<p style="color:red"><b>Risiko KEK</b></p>';
-  } else {
-    hasil.innerHTML = '<p style="color:green"><b>Tidak KEK</b></p>';
+  function showSection(id){
+    document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+    document.getElementById(id).style.display='block';
   }
-}
-
-showSection('home');
+  function cekKEK(){
+    const l = parseFloat(document.getElementById('lila').value);
+    const out = document.getElementById('hasil');
+    if (isNaN(l)) { out.innerHTML = '<p style="color:#b00020">Masukkan nilai LiLA terlebih dahulu</p>'; return; }
+    if (l < 23.5) out.innerHTML = '<p style="color:#b00020"><b>Hasil: Risiko KEK (LiLA &lt; 23,5 cm)</b></p>';
+    else out.innerHTML = '<p style="color:green"><b>Hasil: Tidak KEK (LiLA ≥ 23,5 cm)</b></p>';
+  }
+  showSection('home');
 </script>
 
 </body>
 </html>
+
+
