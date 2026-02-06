@@ -104,13 +104,10 @@ footer {
 
     <label>Nama</label>
     <input type="text" id="nama">
-
     <label>Umur (tahun)</label>
     <input type="number" id="umur">
-
     <label>Usia Kehamilan (minggu)</label>
     <input type="number" id="usiaKehamilan">
-
     <label>LILA (cm)</label>
     <input type="number" step="0.1" id="lila">
 
@@ -119,6 +116,28 @@ footer {
     <p id="hasil" class="hasil-skrining"></p>
 </div>
 
+  <script>
+function cekKEK() {
+    let lila = document.getElementById("lila").value;
+    let hasil = document.getElementById("hasil");
+
+    if (lila === "") {
+        hasil.innerHTML = "Silakan isi data LILA terlebih dahulu.";
+        hasil.style.color = "red";
+        return;
+    }
+
+    if (lila > 23.5) {
+        hasil.innerHTML = "Selamat Ibu, Anda tidak termasuk KEK.";
+        hasil.style.color = "green";
+    } else {
+        hasil.innerHTML = "Ibu termasuk KEK dan membutuhkan konsultasi ke ahli gizi Puskesmas.";
+        hasil.style.color = "red";
+    }
+}
+</script>
+
+  
 <!-- PENCEGAHAN -->
 <div id="prevention" class="section">
 <h3>Pencegahan KEK Ibu Hamil</h3>
@@ -409,6 +428,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
