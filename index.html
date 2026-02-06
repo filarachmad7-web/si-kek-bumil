@@ -97,14 +97,26 @@ footer {
 <p><i>Sumber: Kementerian Kesehatan RI</i></p>
 </div>
 
-<!-- SKRINING -->
-<div id="screening" class="section">
-<h3>Skrining KEK</h3>
-<label>LILA (cm)</label>
-<input type="number" id="lila">
-<button onclick="cekKEK()">Cek Status</button>
-<div id="hasil"></div>
-</div>
+<!-- Skrining -->
+  <div id="screening" class="section">
+    <h3>Skrining Ibu Hamil KEK</h3>
+
+    <label>Nama Ibu</label>
+    <input type="text" id="nama" />
+
+    <label>Umur (tahun)</label>
+    <input type="number" id="umur" />
+
+    <label>Usia Kehamilan (minggu)</label>
+    <input type="number" id="uk" />
+
+    <label>LILA (cm)</label>
+    <input type="number" id="lila" />
+
+    <button onclick="cekKEK()">Cek Status Gizi</button>
+
+    <div id="hasil"></div>
+  </div>
 
 <!-- PENCEGAHAN -->
 <div id="prevention" class="section">
@@ -148,6 +160,8 @@ footer {
   <li>Sayur: Sayur bening bayam</li>
   <li>Buah: Pepaya</li>
 </ul>
+  
+<li>Selingan: Pisang atau susu</li>
 
 <h4>🍛 Siang</h4>
 <ul>
@@ -157,6 +171,8 @@ footer {
   <li>Sayur: Tumis wortel dan buncis</li>
   <li>Buah: Jeruk</li>
 </ul>
+
+  <li>Selingan: Bubur kacang hijau</li>
 
 <h4>🍽️ Sore / Malam</h4>
 <ul>
@@ -173,15 +189,32 @@ footer {
 
 <!-- MITOS VS FAKTA -->
 <div id="myth" class="section">
-<h3>Mitos vs Fakta</h3>
-<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+<h3>Mitos dan Fakta Gizi Ibu Hamil KEK</h3>
+<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" class="responsive">
+
 <ul>
-<li><b>Mitos:</b> Ibu hamil harus makan dua porsi<br><b>Fakta:</b> Makan lebih sering dan seimbang</li>
-<li><b>Mitos:</b> Tidak boleh makan ikan<br><b>Fakta:</b> Ikan sumber protein baik</li>
-<li><b>Mitos:</b> TTD membuat bayi besar<br><b>Fakta:</b> TTD mencegah anemia</li>
+  <li>
+    <strong>Mitos:</strong> Ibu hamil harus makan dua porsi besar makanan setiap kali makan.<br>
+    <strong>Fakta:</strong> Pola makan ibu hamil yang baik adalah makan teratur dengan frekuensi yang lebih sering namun porsi seimbang — misalnya 3 kali makan utama ditambah 1–2 kali selingan bergizi.<br>
+    <em>Penjelasan ilmiah:</em> Diet ibu hamil yang kaya nutrien dan seimbang sangat penting untuk meningkatkan kesehatan ibu dan bayi, serta meningkatkan berat badan lahir dan menurunkan risiko komplikasi kehamilan dibandingkan makan porsi besar sekaligus tanpa mempertimbangkan variasi makanan (Lowensohn et al., 2016). :contentReference[oaicite:1]{index=1}
+  </li>
+
+  <li>
+    <strong>Mitos:</strong> Ibu hamil tidak boleh makan ikan karena berbahaya bagi janin.<br>
+    <strong>Fakta:</strong> Mengonsumsi ikan yang rendah merkuri dalam jumlah yang aman selama kehamilan memberikan protein berkualitas dan asam lemak omega-3 yang penting untuk perkembangan otak dan pertumbuhan janin.<br>
+    <em>Penjelasan ilmiah:</em> Konsumsi ikan selama kehamilan berhubungan dengan peningkatan perkembangan syaraf bayi, berat lahir yang optimal, dan penurunan risiko lahir prematur jika ikan yang dikonsumsi rendah merkuri; asam lemak omega-3 seperti DHA dan EPA merupakan komponen penting pada otak dan retina janin (R Kusuma et al., 2017). :contentReference[oaicite:2]{index=2}
+  </li>
+
+  <li>
+    <strong>Mitos:</strong> Minum Tablet Tambah Darah (TTD) membuat bayi lahir terlalu besar.<br>
+    <strong>Fakta:</strong> Pemberian TTD tidak meningkatkan risiko bayi lahir terlalu besar, tetapi membantu pencegahan anemia dan mendukung kesehatan ibu selama kehamilan.<br>
+    <em>Penjelasan ilmiah:</em> Diet ibu hamil yang bervariasi dan memenuhi kebutuhan energi serta mikronutrien membantu mencapai hasil kehamilan yang lebih baik, termasuk mencegah anemia pada ibu — yang jika tidak diatasi dapat meningkatkan risiko berat badan lahir rendah, prematuritas, dan komplikasi lainnya (Marangoni et al., 2016). :contentReference[oaicite:3]{index=3}
+  </li>
 </ul>
-<p><i>Sumber: Edukasi Gizi Kemenkes RI</i></p>
+
+<p class="small"><em>Sumber: (Lowensohn et al., 2016; R Kusuma et al., 2017; Marangoni et al., 2016).</em></p>
 </div>
+
 
 <!-- FASILITAS -->
 <div id="facilities" class="section">
@@ -245,3 +278,4 @@ showSection('home');
 
 </body>
 </html>
+
