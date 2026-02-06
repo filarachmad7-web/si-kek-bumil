@@ -389,26 +389,36 @@ Aplikasi edukasi • Tidak menggantikan pemeriksaan tenaga kesehatan
 </footer>
 
 <script>
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
-}
-
-function cekKEK() {
-  const lila = document.getElementById('lila').value;
-  const hasil = document.getElementById('hasil');
-  if (lila < 23.5) {
-    hasil.innerHTML = '<p style="color:red"><b>Risiko KEK</b></p>';
-  } else {
-    hasil.innerHTML = '<p style="color:green"><b>Tidak KEK</b></p>';
+  function showSection(id) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
   }
-}
 
-showSection('home');
+  function cekKEK() {
+    const lila = document.getElementById('lila').value;
+    const hasil = document.getElementById('hasil');
+
+    if (lila === '') {
+      hasil.innerHTML = '<div class="result risk">Silakan masukkan nilai LILA</div>';
+      return;
+    }
+
+    if (lila < 23.5) {
+      hasil.innerHTML = '<div class="result risk"><strong>Risiko KEK</strong><br>LILA < 23,5 cm. Dianjurkan PMT dan konseling gizi.</div>';
+    } else {
+      hasil.innerHTML = '<div class="result safe"><strong>Tidak KEK</strong><br>LILA ≥ 23,5 cm. Pertahankan pola makan seimbang.</div>';
+    }
+  }
+
+  // Tampilkan beranda pertama kali
+  showSection('home');
 </script>
 
 </body>
 </html>
+
+
 
 
 
