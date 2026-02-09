@@ -75,6 +75,25 @@ footer {
   <p>Skrining & Edukasi Ibu Hamil</p>
 </header>
 
+  <!-- MUSIK PENGIRING -->
+<div style="text-align:center; margin:10px;">
+  <audio id="bg-music" loop>
+    <source src="musik-relaksasi.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <button onclick="toggleMusic()" style="
+    background:#f06292;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:15px;
+    cursor:pointer;">
+    🎵 Putar Musik
+  </button>
+</div>
+
+  
 <nav>
   <button onclick="showSection('home')">Beranda</button>
   <button onclick="showSection('screening')">Skrining KEK</button>
@@ -461,8 +480,25 @@ Aplikasi edukasi • Tidak menggantikan pemeriksaan tenaga kesehatan
   showSection('home');
 </script>
 
+<script>
+let isPlaying = false;
+
+function toggleMusic() {
+  const music = document.getElementById("bg-music");
+  if (!isPlaying) {
+    music.volume = 0.3; // lembut
+    music.play();
+    isPlaying = true;
+  } else {
+    music.pause();
+    isPlaying = false;
+  }
+}
+</script>
+  
 </body>
 </html>
+
 
 
 
