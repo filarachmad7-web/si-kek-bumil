@@ -82,6 +82,7 @@ footer {
   </audio>
 
   <button onclick="toggleMusic()" style="
+    <p id="music-info" style="font-size:12px; color:#555;"></p>
     background:#f06292;
     color:white;
     border:none;
@@ -481,22 +482,28 @@ Aplikasi edukasi • Tidak menggantikan pemeriksaan tenaga kesehatan
 <script>
 function toggleMusic() {
   const music = document.getElementById("bg-music");
+  const info = document.getElementById("music-info");
 
   if (music.paused) {
     music.volume = 0.4;
-    music.play().catch(err => {
-      alert("Klik layar terlebih dahulu untuk memutar musik");
+    music.play().then(() => {
+      info.innerText = "🎵 Musik sedang diputar";
+    }).catch(() => {
+      info.innerText = "👉 Sentuh layar sekali lagi untuk memutar musik";
     });
   } else {
     music.pause();
+    info.innerText = "⏸ Musik dihentikan";
   }
 }
 </script>
 
 
+
   
 </body>
 </html>
+
 
 
 
