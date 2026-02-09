@@ -75,7 +75,7 @@ footer {
   <p>Skrining & Edukasi Ibu Hamil</p>
 </header>
 
-  <!-- MUSIK PENGIRING -->
+ <!-- MUSIK PENGIRING -->
 <div style="text-align:center; margin:10px;">
   <audio id="bg-music" loop>
     <source src="musik-relaksasi.mp3" type="audio/mpeg">
@@ -92,7 +92,6 @@ footer {
     🎵 Putar Musik
   </button>
 </div>
-
   
 <nav>
   <button onclick="showSection('home')">Beranda</button>
@@ -486,7 +485,7 @@ let isPlaying = false;
 function toggleMusic() {
   const music = document.getElementById("bg-music");
   if (!isPlaying) {
-    music.volume = 0.3; // lembut
+    music.volume = 0.3;
     music.play();
     isPlaying = true;
   } else {
@@ -495,9 +494,11 @@ function toggleMusic() {
   }
 }
 </script>
+
   
 </body>
 </html>
+
 
 
 
