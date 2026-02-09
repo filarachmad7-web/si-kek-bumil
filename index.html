@@ -75,19 +75,18 @@ footer {
   <p>Skrining & Edukasi Ibu Hamil</p>
 </header>
 
- <!-- MUSIK PENGIRING -->
+<!-- MUSIK PENGIRING -->
 <div style="text-align:center; margin:10px;">
-  <audio id="bg-music" loop>
+  <audio id="bg-music">
     <source src="musik-relaksasi.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung audio.
   </audio>
 
   <button onclick="toggleMusic()" style="
     background:#f06292;
     color:white;
     border:none;
-    padding:8px 15px;
-    border-radius:15px;
+    padding:10px 18px;
+    border-radius:20px;
     cursor:pointer;">
     🎵 Putar Musik
   </button>
@@ -480,24 +479,25 @@ Aplikasi edukasi • Tidak menggantikan pemeriksaan tenaga kesehatan
 </script>
 
 <script>
-let isPlaying = false;
-
 function toggleMusic() {
   const music = document.getElementById("bg-music");
-  if (!isPlaying) {
-    music.volume = 0.3;
-    music.play();
-    isPlaying = true;
+
+  if (music.paused) {
+    music.volume = 0.4;
+    music.play().catch(err => {
+      alert("Klik layar terlebih dahulu untuk memutar musik");
+    });
   } else {
     music.pause();
-    isPlaying = false;
   }
 }
 </script>
 
+
   
 </body>
 </html>
+
 
 
 
